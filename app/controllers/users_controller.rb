@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
   def show
     @user = User.find(params[:id])
-    @photo = Photo.find(params[:id])
+    @user_photo = Photo.where(:user_id => @user.id)
 
     render("users/show.html.erb")
   end

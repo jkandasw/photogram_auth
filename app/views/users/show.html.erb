@@ -16,8 +16,11 @@
         <dl class="dl-horizontal">
           <h3>My photos</h3>
 
-
-          <dd><%= @user.email %></dd>
+          <% @user_photo.each do |picture| %>
+          <tr>
+            <td><%= picture.caption %></td>
+              <td><img src ="<%= picture.image %>" width="600"</td>
+        <%end%>
         </div>
 
       </div>
