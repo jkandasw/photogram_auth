@@ -11,6 +11,15 @@ class PhotosController < ApplicationController
     render("photos/show.html.erb")
   end
 
+  def my_likes
+    @likes =Like.where(params[:id => current_user])
+    @like = params[:photo_id]
+    @photo = Photo.where(params[:id => @like])
+    # @like_photo=@photo.image
+
+     render("photos/my_likes.html.erb")
+   end
+
   def new
     @photo = Photo.new
 

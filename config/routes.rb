@@ -25,6 +25,11 @@ Rails.application.routes.draw do
   #------------------------------
 
   # Routes for the Like resource:
+
+  #My-likes
+  get "/my_likes", :controller => "photos", :action => "my_likes"
+  # get "/my_timeline", :controller => "photos", :action => "my_timeline"
+  
   # CREATE
   get "/likes/new", :controller => "likes", :action => "new"
   post "/create_like", :controller => "likes", :action => "create"

@@ -1,0 +1,6 @@
+
+<<% @photo.each do |photo| %>
+<tr>
+  <td><%= photo.caption %></td>
+    <td><img src ="<%= photo.image %>" width="600"</td>
+  <% end %>
