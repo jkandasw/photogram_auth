@@ -1,8 +1,8 @@
 <!-- <div class="page-header">
-  <h1>
-    Photos
-    <a href="/photos/new" class="btn btn-lg btn-success">New Photo</a>
-  </h1>
+<h1>
+Photos
+<a href="/photos/new" class="btn btn-lg btn-success">New Photo</a>
+</h1>
 </div> -->
 
 <div class="row">
@@ -22,47 +22,35 @@
           </a>
           <% @photos.each do |photo| %>
           <tr>
-            <td><%= photo.caption %></td>
-              <td><img src ="<%= photo.image %>" width="600"</td>
-              <small>
-                  <%= time_ago_in_words(photo.created_at) %> ago
-                </small>
+            <td><%= photo.caption %>
+            <small>
+              <%= time_ago_in_words(photo.created_at) %> ago
+            </small> </td>
+            <td><img src ="<%= photo.image %>" width="600"</td>
+
+
+
             <!-- <td><%= photo.image %></td> -->
-
+            <td><%= photo.user_id %></td>
             <td><%= User.find_by(:id => photo.user_id).username %></td>
-            <td><%= Comment.find_by(:id => photo.id).body %></td>
-            <!-- <% @comments.find_by(:id =>photo.id) do |comment| %>
-          <li class="media">
-            <div class="media-body">
-              <h6 class="media-heading">
-                <%= link_to comment.user.username, "/users/#{comment.user.id}" %>
-                <small>
-                  <%= time_ago_in_words(comment.created_at) %> ago
-
-                </small>
-              </h6>
-              <%= comment.body %>
-            </div>
-          </li>
-          <% end %> -->
-
             <td>
               <a href="/photos/<%= photo.id %>" class="btn btn-primary">Show</a>
               <% if current_user.id == photo.user_id %>
-                        <a href="/photos/<%= photo.id %>/edit" class="btn btn-warning">Edit</a>
+              <a href="/photos/<%= photo.id %>/edit" class="btn btn-warning">Edit</a>
               <a href="/delete_photo/<%= photo.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
-                  <% end %>
-                  <% end %>
+              <% end %>
+              <% end %>
 
-              </td>
+
+            </td>
           </tr>
 
         </table>
-          <hr>
-        </div>
-
+        <hr>
       </div>
 
-    </table> -->
-  <!-- </div>
-</div>
+    </div>
+
+    <!-- </table> -->
+    <!-- </div>
+  </div> -->
