@@ -1,9 +1,9 @@
-<div class="page-header">
+<!-- <div class="page-header">
   <h1>
     Photos
     <a href="/photos/new" class="btn btn-lg btn-success">New Photo</a>
   </h1>
-</div>
+</div> -->
 
 <div class="row">
   <div class="col-md-12">
@@ -15,21 +15,38 @@
         <th>Actions</th>
       </tr>
 
-      <% @photos.each do |photo| %>
-      <tr>
-        <td><%= photo.caption %></td>
-          <td><img src ="<%= photo.image %>" width="600"</td>
-        <!-- <td><%= photo.image %></td> -->
-        <td><%= photo.user_id %></td>
-        <td>
-          <a href="/photos/<%= photo.id %>" class="btn btn-primary">Show</a>
-          <% if current_user.id == photo.user_id %>
-                    <a href="/photos/<%= photo.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_photo/<%= photo.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
-              <% end %>
-        </td>
-      </tr>
-      <% end %>
-    </table>
-  </div>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <a href="/photos/new" class="btn btn-default btn-block">
+            <i class="fa fa-plus"></i>
+          </a>
+          <% @photos.each do |photo| %>
+          <tr>
+            <td><%= photo.caption %></td>
+              <td><img src ="<%= photo.image %>" width="600"</td>
+              <small>
+            <%= time_ago_in_words(photo.created_at) %> ago
+          </small>
+            <!-- <td><%= photo.image %></td> -->
+
+            <td><%= User.find_by(:id => photo.user_id).username %></td>
+            <td>
+              <a href="/photos/<%= photo.id %>" class="btn btn-primary">Show</a>
+              <% if current_user.id == photo.user_id %>
+                        <a href="/photos/<%= photo.id %>/edit" class="btn btn-warning">Edit</a>
+              <a href="/delete_photo/<%= photo.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+                  <% end %>
+                  <% end %>
+
+              </td>
+          </tr>
+
+        </table>
+          <hr>
+        </div>
+
+      </div>
+
+    </table> -->
+  <!-- </div>
 </div>

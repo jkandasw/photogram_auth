@@ -1,6 +1,14 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <<% @photo.each do |photo| %>
+    <tr>
+      <td><%= photo.caption %></td>
+          </tr>
+    <tr>
+        <td><img src ="<%= photo.image %>" width="600"</td>
+          <i class="fa fa-plus"></i>
+      <% end %>
 
-<<% @photo.each do |photo| %>
-<tr>
-  <td><%= photo.caption %></td>
-    <td><img src ="<%= photo.image %>" width="600"</td>
-  <% end %>
+    </tr>
+  </div>
+</div>
