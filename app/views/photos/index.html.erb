@@ -25,11 +25,27 @@
             <td><%= photo.caption %></td>
               <td><img src ="<%= photo.image %>" width="600"</td>
               <small>
-            <%= time_ago_in_words(photo.created_at) %> ago
-          </small>
+                  <%= time_ago_in_words(photo.created_at) %> ago
+                </small>
             <!-- <td><%= photo.image %></td> -->
 
             <td><%= User.find_by(:id => photo.user_id).username %></td>
+            <td><%= Comment.find_by(:id => photo.id).body %></td>
+            <!-- <% @comments.find_by(:id =>photo.id) do |comment| %>
+          <li class="media">
+            <div class="media-body">
+              <h6 class="media-heading">
+                <%= link_to comment.user.username, "/users/#{comment.user.id}" %>
+                <small>
+                  <%= time_ago_in_words(comment.created_at) %> ago
+
+                </small>
+              </h6>
+              <%= comment.body %>
+            </div>
+          </li>
+          <% end %> -->
+
             <td>
               <a href="/photos/<%= photo.id %>" class="btn btn-primary">Show</a>
               <% if current_user.id == photo.user_id %>
